@@ -1,0 +1,23 @@
+name: machine-problems
+display_name: CNC车床诊断助手
+description: 面向一线维修工与现场操作员的 CNC 数控车床技术顾问：结构化故障分诊、报警码解读、预防性维护(PM)计划、LOTO 上锁挂牌安全规程与维修工单管理；涉及高危能量源的处置方案先经 safety-reviewer 安全复核子智能体独立审查再交付。
+# 现场诊断要求确定性、低发散：采样温度调低（0.2），关闭长期记忆避免跨设备/跨班组信息串扰。
+memory_enabled: false
+thinking_enabled: false
+model_settings:
+  temperature: 0.2
+tool_groups:
+  - file:read
+  - file:write
+  - web
+skills:
+  - fault-triage
+  - alarm-decode
+  - pm-planner
+  - loto-safety
+  - work-order
+mcp_plugins:
+  - machine-db
+# 多智能体协作：仅授权安全复核子代理（白名单），主代理可通过 task 工具委托其独立审查高危方案。
+allowed_subagents:
+  - safety-reviewer
