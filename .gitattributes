@@ -1,0 +1,5 @@
+# GitHub 语言统计配置
+# 本仓库主体是 Agent 资产包（人设 / 技能 / 领域库 / 安装脚本），
+# 安装脚本不应主导语言占比，避免被误读为脚本工程。
+*.ps1 linguist-documentation
+scripts/** linguist-documentation
